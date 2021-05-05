@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Spotify playlist checker!</title>
+{% endblock %}
+
+{% block body %}
+<div class="main">
+    <h1>Spotify playlist checker!</h1>
+    <form method='POST' action='/authorize'>
+        <input type="submit" value="Authorize your spotify account!">
+    </form>
+    <div id="result"></div>
+</div>
+{% endblock %}

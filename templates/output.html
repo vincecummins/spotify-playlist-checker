@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Spotify playlist checker!</title>
+{% endblock %}
+
+{% block body %}
+<div class="main">
+    <h1>Spotify playlist checker!</h1>
+    <form method='GET' action='/output'>
+        <input id="convertForm" type='text' placeholder="Enter a playlist name..." name='playlist' required>
+        <input type="submit" value="Search">
+    </form>
+    <div id="result"></div>
+    <h3>Playlist entered: {{ p }}</h3>
+    <p>
+        <h3>Artists in library: {{art_p}}</h3>
+        <ul>{{ art }}</ul>
+    </p>
+    <p>
+        <h3>Artists not in library: {{art_np}}</h3>
+        <ul>{{ art_n }}</ul>
+    </p>
+    <p>
+        <h3>Albums in library: {{alb_p}}</h3>
+        <ul>{{ alb }}</ul>
+    </p>
+    <p>
+        <h3>Tracks in library: {{ t_p }}</h3>
+        <ul>{{ t }}</ul>
+    </p>
+    <form method='GET' action='/'>
+        <input type="submit" value="Go Back">
+    </form>
+</div>
+{% endblock %}
