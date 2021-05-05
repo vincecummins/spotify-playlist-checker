@@ -91,20 +91,12 @@ class SpotifyAPI(object):
                         self.usr_albums.add(x['track']['album']['id'])
                     offset +=20
                 collection.insert_one({'id': _id, 'name': name, 'tracks': list(self.usr_tracks), 'albums': list(self.usr_albums), 'artists': list(self.usr_artists)})
-            else:
-                xx = collection.find_one({'id': _id})
-                self.usr_tracks = xx['tracks']
-                self.usr_artists = xx['artists']
-                self.usr_albums = xx['albums']
         except:
-            print('cant get me')
+            print('cant get user library')
 
         return auth_header
 
     def get_client_credentials(self):
-        """
-        Returns a base64 encoded string
-        """
         client_id = self.client_id
         client_secret = self.client_secret
         if client_secret == None or client_id == None:
